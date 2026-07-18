@@ -1,6 +1,7 @@
 package com.learning.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
@@ -14,7 +15,8 @@ public class Employee {
 	private int salary = 44;
 
 	@Autowired
-	private Address add;
+	@Qualifier(value = "address1")
+	private AddInterface add;
 
 	public Employee() {
 		System.out.println("Employee.Employee()");
@@ -25,13 +27,13 @@ public class Employee {
 		System.out.println("Employee.setName()");
 	}
 
-	public void setAddress(Address add) {
+	public void setAdd(AddInterface add) {
 		this.add = add;
 		System.out.println("Employee.setAddress()");
 	}
 
 	
-	public Employee(Address add) {
+	public Employee(AddInterface add) {
 		this.add = add;
 		System.out.println("Employee.Employee(1)");
 	}

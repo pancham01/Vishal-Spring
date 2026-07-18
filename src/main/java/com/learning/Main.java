@@ -3,7 +3,7 @@ package com.learning;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.learning.model.Address;
+import com.learning.model.Address1;
 import com.learning.model.Employee;
 
 public class Main {
@@ -21,7 +21,7 @@ public class Main {
 		
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>");
 
-		Address address = ioc.getBean(Address.class);
+		Address1 address = ioc.getBean(Address1.class);
 		System.out.println(address);
 		
 	}
