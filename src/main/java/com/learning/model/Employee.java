@@ -1,38 +1,39 @@
 package com.learning.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import lombok.Data;
 
 @Data
+@Component
 public class Employee {
 
-	private int id;
-	private String name, gender;
-	private int salary;
+	private int id = 1;
+	private String name = "Vishal", gender = "male";
+	private int salary = 44;
+
+	@Autowired
+	private Address add;
 
 	public Employee() {
 		System.out.println("Employee.Employee()");
 	}
-	
-	
-	
 
 	public void setName(String name) {
 		this.name = name;
 		System.out.println("Employee.setName()");
 	}
 
-
-
-
-	public Employee(int id, String name, String gender, int salary) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.gender = gender;
-		this.salary = salary;
-		System.out.println("Employee.Employee(4)");
+	public void setAddress(Address add) {
+		this.add = add;
+		System.out.println("Employee.setAddress()");
 	}
+
 	
-	
-	
+	public Employee(Address add) {
+		this.add = add;
+		System.out.println("Employee.Employee(1)");
+	}
+
 }

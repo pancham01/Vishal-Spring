@@ -1,27 +1,29 @@
 package com.learning;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.learning.model.Address;
 import com.learning.model.Employee;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		ApplicationContext ioc = new ClassPathXmlApplicationContext("application-context.xml");
+		ApplicationContext ioc = new AnnotationConfigApplicationContext("com.learning");
 
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>");
 		
 		
-		Employee bean = ioc.getBean("emp1", Employee.class);
-
+		Employee bean = ioc.getBean("employee", Employee.class);
 		System.out.println(bean);
 
-		Employee bean2 = ioc.getBean("emp2", Employee.class);
+		
+		System.out.println("<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>");
 
-		System.out.println(bean2);
-
+		Address address = ioc.getBean(Address.class);
+		System.out.println(address);
+		
 	}
 
 }
